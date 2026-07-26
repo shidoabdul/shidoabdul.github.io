@@ -3,37 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio</title>
+    <title>Shido Personal Web</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Left Navigation Bar -->
+<!-- Left Navigation Bar -->
     <header>
-        <!-- 1. YOUR EMBEM/LOGO -->
-        <!-- Replace 'emblem.png' with your actual filename (e.g., logo.jpg, profile.svg) -->
-        <!-- <img src="emblem.png" alt="Emblem" class="profile-emblem"> -->
-
-        <!-- 2. NAME GROUP -->
+        <img src="emblem.png" alt="Emblem" class="profile-emblem">
         <div class="name-group">
             <h1 class="primary-name">Shido Abdullah</h1>
             <p class="secondary-name">Abdullah Rasyid</p>
-            <p class="secondary-name">神僕指導「シド」</p>
+            <p class="secondary-name" style="font-size: 0.8rem;">神僕指導「シド」</p>
+            <p class="pronouns">(he/him)</p>
         </div>
+        <p class="tagline"> <code>Discover More!</code></p>
 
-        <!-- 3. PRONOUNS -->
-        <p class="pronouns">(he/him)</p>
-
-        <!-- 4. SUBTITLE -->
-        <p class="tagline">Researcher & Developer</p>
-
-        <!-- NAVIGATION (unchanged) -->
+        <!-- Navigation Links at Bottom -->
         <nav>
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#publications">Publications</a>
             <a href="#contact">Contact</a>
         </nav>
+
+        <!-- Spacer element to push navigation and footer to the bottom then Footer-->
+        <div class="sidebar-spacer"></div>
+        <footer> <p>&copy; <span id="year"></span> Shido Abdullah.<br>Built with GitHub Pages.</p> </footer>
     </header>
 
     <!-- Right Side Content -->
@@ -41,18 +37,18 @@
         <main>
             <section id="about">
                 <h2>About Me</h2>
-                <p>Welcome to my website! I specialize in computational data analysis, modeling, and scientific research. Feel free to explore my work and published papers below.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, quod vitae repellendus impedit odio inventore voluptates laborum quasi iure cum?</p>
             </section>
 
             <section id="projects">
                 <h2>Current Research & Projects</h2>
                 <div class="project-card">
                     <h3>Project Title 1</h3>
-                    <p>A short description of your ongoing project, computational pipeline, or technical analysis tools.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, ducimus.</p>
                 </div>
                 <div class="project-card">
                     <h3>Project Title 2</h3>
-                    <p>Details about another software tool, package, or analysis framework you have built.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, ducimus.</p>
                 </div>
             </section>
 
@@ -65,13 +61,48 @@
 
             <section id="contact">
                 <h2>Contact</h2>
-                <p>You can reach me at: <code>your.email@domain.com</code></p>
-                <p>Or find me on <a href="https://github.com/shidoabdul" style="color: var(--heading-color);">GitHub</a>.</p>
+                
+                <!-- Contact Group -->
+                <div class="tabbed-list">
+                    <div class="tabbed-row">
+                        <span class="tab-label">Personal</span>
+                        <a href="mailto:shidoabdullah@gmail.com" class="tab-value">shidoabdullah@gmail.com</a>
+                    </div>
+                    <div class="tabbed-row">
+                        <span class="tab-label">Institution</span>
+                        <a href="mailto:20322301@students.itb.ac.id" class="tab-value">20322301@students.itb.ac.id</a>
+                    </div>
+                    <div class="tabbed-row">
+                        <span class="tab-label">GitHub</span>
+                        <a href="https://github.com/shidoabdul" target="_blank" rel="noopener noreferrer" class="tab-value">github.com/shidoabdul</a>
+                    </div>
+                    <div class="tabbed-row">
+                        <span class="tab-label">LinkedIn</span>
+                        <a href="https://www.linkedin.com/in/shidoabdullah/" target="_blank" rel="noopener noreferrer" class="tab-value">Shido Abdullah</a>
+                    </div>
+                </div>
+
+                <!-- Social Media Group -->
+                <h3 class="subsection-title">Social Media</h3>
+                <div class="tabbed-list">
+                    <div class="tabbed-row">
+                        <span class="tab-label">Instagram</span>
+                        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="tab-value">Instagram Account</a>
+                    </div>
+                    <div class="tabbed-row">
+                        <span class="tab-label">Facebook</span>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="tab-value">Facebook Account</a>
+                    </div>
+                    <div class="tabbed-row">
+                        <span class="tab-label">Twitter / X</span>
+                        <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="tab-value">Twitter Account</a>
+                    </div>
+                </div>
             </section>
         </main>
-
-        <footer> <p>&copy; <span id="year"></span> Shido Abdullah. Built with GitHub Pages.</p> </footer>
     </div>
 
+<!-- Place this right above </body> -->
+    <script> document.getElementById("year").textContent = new Date().getFullYear(); </script>
 </body>
 </html>

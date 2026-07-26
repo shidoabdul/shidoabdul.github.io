@@ -1,14 +1,14 @@
 :root {
-    --bg-color: #0d1117;
-    --card-bg: #161b22;
-    --sidebar-bg: #161b22;
-    --text-color: #c9d1d9;
-    --heading-color: #58a6ff;
-    --accent-color: #1f6feb;
-    --border-color: #30363d;
+    --bg-color: #f6f8fa;        /* Soft light gray background */
+    --card-bg: #ffffff;        /* Crisp white card background */
+    --sidebar-bg: #eaeef2;     /* Subtle contrasting sidebar */
+    --text-color: #24292f;      /* Dark charcoal for body text (high readability) */
+    --heading-color: #000080;   /* Rich Deep Navy (Primary brand color) */
+    --accent-color: #0969da;    /* Bright blue for links/highlights */
+    --border-color: #d0d7de;    /* Clean gray borders */
 }
 
-/* Layout structure: Header on left, main content on right */
+/* Global & Body Layout */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
@@ -25,32 +25,78 @@ header {
     width: 260px;
     background-color: var(--sidebar-bg);
     border-right: 1px solid var(--border-color);
-    padding: 2.5rem 1.5rem;
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
     position: sticky;
     top: 0;
     height: 100vh; /* Full viewport height */
     box-sizing: border-box;
+    align-items: center;
+    text-align: left;
 }
 
-header h1 {
+/* Emblem / Logo */
+.profile-emblem {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 1rem;
+}
+
+/* Name Grouping */
+.name-group {
+    margin-bottom: 0.25rem;
+}
+
+.primary-name {
     color: var(--heading-color);
-    margin: 0 0 0.25rem 0;
-    font-size: 1.6rem;
+    margin: 0 0 0.1rem 0;
+    font-size: 1.5rem;
+    line-height: 1.25;
+}
+.secondary-name {
+    color: #333a42;
+    margin: 0;
+    padding: 0;
+    font-size: 1.00rem;
+    line-height: 1.25;
+    opacity: 1;
+    font-weight: normal;
+}
+.pronouns {
+    color: #333a42;
+    margin: 0.25rem 0;
+    font-size: 0.85rem;
+    font-style: normal;
+}
+/* .tagline {
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    color: #333a42;
+} */
+
+.tagline {
+    margin: 0.5 0.5 1rem 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-left: 3px solid var(--accent-color);
+    border-right: 3px solid var(--accent-color);
+    font-size: 0.9rem;
+    color: #333a42;
 }
 
-header p {
-    margin: 0 0 2rem 0;
-    font-size: 0.95rem;
-    color: #8b949e;
+/* Flex Spacer: Pushes nav & footer to bottom */
+.sidebar-spacer {
+    flex-grow: 1;
 }
 
-/* Vertical Navigation Menu */
+/* Bottom Navigation Menu */
 nav {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
 }
 
 nav a {
@@ -65,6 +111,17 @@ nav a {
 nav a:hover {
     background-color: var(--border-color);
     color: var(--heading-color);
+}
+
+/* Footer (Pinned to Sidebar Bottom) */
+footer {
+    color: #8b949e;
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+footer p {
+    margin: 0;
 }
 
 /* Main Content Container */
@@ -95,13 +152,7 @@ h2 {
     margin: 1rem 0;
 }
 
-footer {
-    margin-top: 3rem;
-    color: #8b949e;
-    font-size: 0.85rem;
-}
-
-/* Responsive design for smaller screens/mobile */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     body {
         flex-direction: column;
@@ -114,17 +165,67 @@ footer {
         border-right: none;
         border-bottom: 1px solid var(--border-color);
         padding: 1.5rem;
-        text-align: center;
+    }
+
+    .sidebar-spacer {
+        display: none; /* Disables the bottom spacer on mobile */
     }
 
     nav {
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        margin-bottom: 1rem;
     }
 
     .content-wrapper {
         padding: 1.5rem;
     }
+}
+
+/* Tabbed Alignment Layout (\tab effect) */
+.tabbed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tabbed-row {
+    display: flex;
+    align-items: baseline;
+}
+
+/* Acts as the fixed \tab stop */
+.tab-label {
+    min-width: 120px; /* Adjust this width if you need a wider/narrower tab space */
+    font-weight: 600;
+    color: var(--text-color);
+    flex-shrink: 0;
+}
+
+/* Value / Link Styling */
+.tab-value {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+.tab-value:hover {
+    color: var(--heading-color);
+    text-decoration: underline;
+}
+
+.tab-value code {
+    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
+    font-size: 0.9rem;
+    color: inherit;
+}
+
+/* Subsection Header */
+.subsection-title {
+    font-size: 1.1rem;
+    color: var(--heading-color);
+    margin: 1.5rem 0 0.75rem 0;
 }
