@@ -18,7 +18,7 @@ const names = [
   "ရှီဒို အဗ္ဗဒူလာ",
   "ชิโด อับดุลลอฮ์",
   "ຊີໂດ ອັບດຸນລາ",
-  "ꨧꨪꨕ꩏ ꨀꨝꩉꨕꨭꨤꩌ",
+  "ꨧꨪꨕ ꨀꨝꩉꨕꨭꨤꩌ",
   "ᯘᯪᯑᯬ ᯀᯅ᯲ᯑᯮᯞ᯲ᯞᯂ᯲",
   "ꤞꤤꤒꤥ ꤀꤅ꤲꤑꤢꤤꤤꤜ",
   "ᮞᮤᮓᮧ ᮃᮘ᮪ᮓᮥᮜ᮪ᮜᮠ᮪",
@@ -72,5 +72,16 @@ function typeEffect() {
 
   setTimeout(typeEffect, speed);
 }
-
 document.addEventListener("DOMContentLoaded", typeEffect);
+
+// Ensure the code runs AFTER the DOM elements are fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+  // Set current year
+  const yearElement = document.getElementById("year");
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+  // Start typewriter effect
+  typeEffect();
+});
