@@ -6,6 +6,7 @@
     --heading-color: #000080;   /* Rich Deep Navy (Primary brand color) */
     --accent-color: #0969da;    /* Bright blue for links/highlights */
     --border-color: #d0d7de;    /* Clean gray borders */
+    --text-footer: #8b949e;    /* Muted gray for footer text */
 }
 
 /* Global & Body Layout */
@@ -18,6 +19,13 @@ body {
     padding: 0;
     display: flex; /* Side-by-side layout */
     min-height: 100vh;
+}
+
+/* Emblem / Logo */
+.profile-emblem {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 1rem;
 }
 
 /* Left Navigation Sidebar */
@@ -36,18 +44,10 @@ header {
     text-align: center;
 }
 
-/* Emblem / Logo */
-.profile-emblem {
-    width: 90px;
-    height: 90px;
-    margin-bottom: 1rem;
-}
-
 /* Name Grouping */
 .name-group {
     margin-bottom: 0.25rem;
 }
-
 .primary-name {
     color: var(--heading-color);
     margin: 0 0 0.1rem 0;
@@ -55,7 +55,7 @@ header {
     line-height: 1.25;
 }
 .secondary-name {
-    color: #333a42;
+    color: var(--text-color);
     margin: 0;
     padding: 0;
     font-size: 1.00rem;
@@ -64,28 +64,35 @@ header {
     font-weight: normal;
 }
 .pronouns {
-    color: #333a42;
+    color: var(--text-color);
     margin: 0.25rem 0;
     font-size: 0.85rem;
     font-style: normal;
 }
-
 .tagline {
+    color: var(--text-color);
     margin: 0.5 0.5 1rem 0;
     padding-left: 1rem;
     padding-right: 1rem;
     border-left: 3px solid var(--accent-color);
     border-right: 3px solid var(--accent-color);
     font-size: 0.9rem;
-    color: #333a42;
 }
 
-/* Flex Spacer: Pushes nav & footer to bottom */
-.sidebar-spacer {
-    flex-grow: 1;
+/* Blinking Typewriter Cursor */
+.secondary-name .cursor {
+    display: inline-block;
+    margin-left: 2px;
+    font-weight: 300;
+    color: inherit; /* Matches text color, or change to your accent color */
+    animation: blink 0.7s infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
-/* Bottom Navigation Menu */
+/* Navigation Menu */
 nav {
     display: flex;
     flex-direction: column;
@@ -93,7 +100,6 @@ nav {
     width: 100%;
     margin-bottom: 1.5rem;
 }
-
 nav a {
     color: var(--text-color);
     text-decoration: none;
@@ -102,19 +108,29 @@ nav a {
     border-radius: 6px;
     transition: background 0.2s, color 0.2s;
 }
-
 nav a:hover {
     background-color: var(--border-color);
     color: var(--heading-color);
 }
+.active {
+    background-color: var(--accent-color);
+    color: var(--card-bg) !important; /* Forces white text inside the pill */
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* Flex Spacer: Pushes footer to bottom */
+.sidebar-spacer {
+    flex-grow: 1;
+}
 
 /* Footer (Pinned to Sidebar Bottom) */
 footer {
-    color: #8b949e;
+    color: var(--text-footer);
     font-size: 0.75rem;
     line-height: 1.4;
 }
-
 footer p {
     margin: 0;
 }
@@ -124,6 +140,15 @@ footer p {
     flex: 1;
     padding: 2rem 3rem;
     max-width: 900px;
+    position: relative;
+    /* Sets background.png and overlays a semi-transparent white/light tint */
+    background-image: 
+        linear-gradient(rgba(246, 248, 250, 0.85), rgba(246, 248, 250, 0.85)), 
+        url('background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; /* Keeps image fixed while scrolling */
 }
 
 section {
@@ -225,16 +250,40 @@ h2 {
     margin: 1.5rem 0 0.75rem 0;
 }
 
-/* Blinking Typewriter Cursor */
-.secondary-name .cursor {
-    display: inline-block;
-    margin-left: 2px;
-    font-weight: 300;
-    color: inherit; /* Matches text color, or change to your accent color */
-    animation: blink 0.7s infinite;
+/* Flag Language Switcher Container */
+.lang-switch {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
 }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+/* Flag Buttons */
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+}
+.lang-btn .flag {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+.lang-btn:hover {
+    background-color: var(--border-color);
+    color: var(--heading-color);
+}
+/* Active Selected Flag Highlight */
+.lang-btn.active-lang {
+    background-color: var(--accent-color);
+    color: var(--card-bg);
 }

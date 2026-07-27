@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shido Personal Web - Projects</title>
+    <title>Shido: Projects</title>
     <link rel="icon" type="image/svg+xml" href="emblem.svg">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="animation.js" defer></script>
+    <script src="lang.js" defer></script>
 </head>
 <body>
 
@@ -16,26 +17,35 @@
         <div class="name-group">
             <h1 class="primary-name">Shido Abdullah</h1>
             <p class="secondary-name"><span id="typed-name"></span></p>
-            <p class="pronouns">(he/him)</p>
+            <p class="pronouns" data-i18n="pronoun">(he/him)</p>
         </div>
-        <p class="tagline"><code>Discover More!</code></p>
+        <p class="tagline" data-i18n="tagline"><code>Discover More!</code></p>
 
+        <!-- Links to separate HTML pages -->
         <nav>
-            <a href="index.html">About</a>
-            <a href="01_projects.html" class="active">Projects</a>
-            <a href="02_publications.html">Publications</a>
-            <a href="03_contact.html">Contact</a>
+            <a href="index.html" data-i18n="nav_about">About</a>
+            <a href="01_projects.html" data-i18n="nav_projects" class="active">Projects</a>
+            <a href="02_publications.html" data-i18n="nav_publications">Publications</a>
+            <a href="03_contact.html" data-i18n="nav_contact">Contact</a>
         </nav>
 
         <div class="sidebar-spacer"></div>
-        <footer><p>&copy; <span id="year"></span> Shido Abdullah.<br>Built with GitHub Pages.</p></footer>
+        <div id="lang-switch-container"></div>
+
+        <!-- Footer -->
+        <footer>
+            <p>
+                &copy; <span id="year"></span> Shido Abdullah.<br>
+                <span data-i18n="footer_built">Built with GitHub Pages.</span>
+            </p>
+        </footer>
     </header>
 
     <!-- Page Content -->
     <div class="content-wrapper">
         <main>
             <section id="projects">
-                <h2>Current Research & Projects</h2>
+                <h2 data-i18n="projects_title">Current Research & Projects</h2>
                 <div class="project-card">
                     <h3>Project Title 1</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, ducimus.</p>
