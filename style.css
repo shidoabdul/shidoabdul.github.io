@@ -224,3 +224,17 @@ h2 {
     color: var(--heading-color);
     margin: 1.5rem 0 0.75rem 0;
 }
+
+/* Blinking Typewriter Cursor */
+.secondary-name .cursor {
+    display: inline-block;
+    margin-left: 2px;
+    font-weight: 300;
+    color: inherit; /* Matches text color, or change to your accent color */
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
