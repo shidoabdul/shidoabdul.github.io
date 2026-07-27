@@ -33,7 +33,7 @@ header {
     height: 100vh; /* Full viewport height */
     box-sizing: border-box;
     align-items: center;
-    text-align: left;
+    text-align: center;
 }
 
 /* Emblem / Logo */
@@ -69,11 +69,6 @@ header {
     font-size: 0.85rem;
     font-style: normal;
 }
-/* .tagline {
-    margin: 0 0 1rem 0;
-    font-size: 0.9rem;
-    color: #333a42;
-} */
 
 .tagline {
     margin: 0.5 0.5 1rem 0;
