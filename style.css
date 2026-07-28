@@ -1,34 +1,70 @@
-:root {
-    --bg-color: #f6f8fa;        /* Soft light gray background */
-    --card-bg: #ffffff;        /* Crisp white card background */
-    --sidebar-bg: #eaeef2;     /* Subtle contrasting sidebar */
-    --text-color: #24292f;      /* Dark charcoal for body text (high readability) */
-    --heading-color: #000080;   /* Rich Deep Navy (Primary brand color) */
-    --accent-color: #0969da;    /* Bright blue for links/highlights */
-    --border-color: #d0d7de;    /* Clean gray borders */
-    --text-footer: #8b949e;    /* Muted gray for footer text */
-}
+/* 1. Google Fonts Imports (Must be at the top) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+Arabic:wght@400&family=Noto+Sans+Armenian:wght@400&family=Noto+Sans+Balinese:wght@400&family=Noto+Sans+Batak:wght@400&family=Noto+Sans+Bengali:wght@400&family=Noto+Sans+Buginese:wght@400&family=Noto+Sans+Cham:wght@400&family=Noto+Sans+Cherokee:wght@400&family=Noto+Sans+Cuneiform:wght@400&family=Noto+Sans+Devanagari:wght@400&family=Noto+Sans+Georgian:wght@400&family=Noto+Sans+Grantha:wght@400&family=Noto+Sans+Gurmukhi:wght@400&family=Noto+Sans+Hebrew:wght@400&family=Noto+Sans+Javanese:wght@400&family=Noto+Sans+KR:wght@400&family=Noto+Sans+Kannada:wght@400&family=Noto+Sans+Lao:wght@400&family=Noto+Sans+Mongolian:wght@400&family=Noto+Sans+Myanmar:wght@400&family=Noto+Sans+Oriya:wght@400&family=Noto+Sans+Runic:wght@400&family=Noto+Sans+SC:wght@400&family=Noto+Sans+Sundanese:wght@400&family=Noto+Sans+Syriac:wght@400&family=Noto+Sans+Tagalog:wght@400&family=Noto+Sans+Tamil:wght@400&family=Noto+Sans+Telugu:wght@400&family=Noto+Sans+Thai:wght@400&family=Noto+Sans+Tifinagh:wght@400&family=Noto+Serif+Tibetan:wght@400&display=swap');
 
-/* Global & Body Layout */
+/* 2. Design Tokens & Theme Variables */
+:root {
+    --bg-color: #f6f8fa;
+    --card-bg: #ffffff;
+    --sidebar-bg: #e2e7ec;
+    --text-color: #24292f;
+    --heading-color: #000080;
+    --accent-color: #0969da;
+    --border-color: #d0d7de;
+    --text-footer: #8b949e;
+}
+/* Enable Full-Page Scroll Snapping */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents double scrollbars */
+}
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    display: flex; /* Side-by-side layout */
-    min-height: 100vh;
+    display: flex;
+}
+/* Comprehensive Noto font stack for typewriter text */
+#typed-name, .secondary-name {
+    font-family: 
+        "Noto Sans", 
+        "Noto Serif Tibetan", 
+        "Noto Sans Cuneiform", 
+        "Noto Sans Runic", 
+        "Noto Sans Tifinagh", 
+        "Noto Sans Syriac", 
+        "Noto Sans Hebrew", 
+        "Noto Sans Arabic", 
+        "Noto Sans Devanagari", 
+        "Noto Sans Bengali", 
+        "Noto Sans Gurmukhi", 
+        "Noto Sans Tamil", 
+        "Noto Sans Telugu", 
+        "Noto Sans Kannada", 
+        "Noto Sans Oriya", 
+        "Noto Sans Grantha", 
+        "Noto Sans Myanmar", 
+        "Noto Sans Thai", 
+        "Noto Sans Lao", 
+        "Noto Sans Cham", 
+        "Noto Sans Batak", 
+        "Noto Sans Sundanese", 
+        "Noto Sans Javanese", 
+        "Noto Sans Balinese", 
+        "Noto Sans Buginese", 
+        "Noto Sans Tagalog", 
+        "Noto Sans KR", 
+        "Noto Sans SC", 
+        "Noto Sans Armenian", 
+        "Noto Sans Georgian", 
+        "Noto Sans Mongolian", 
+        "Noto Sans Cherokee", 
+        sans-serif;
 }
 
-/* Emblem / Logo */
-.profile-emblem {
-    width: 90px;
-    height: 90px;
-    margin-bottom: 1rem;
-}
-
-/* Left Navigation Sidebar */
+/* 3. Sidebar & Header Layout */
 header {
     width: 260px;
     background-color: var(--sidebar-bg);
@@ -38,61 +74,59 @@ header {
     flex-direction: column;
     position: sticky;
     top: 0;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     box-sizing: border-box;
     align-items: center;
     text-align: center;
+    z-index: 10;
 }
 
-/* Name Grouping */
-.name-group {
-    margin-bottom: 0.25rem;
+.profile-emblem {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 1rem;
 }
+
+.name-group { margin-bottom: 0.25rem; }
+
 .primary-name {
     color: var(--heading-color);
     margin: 0 0 0.1rem 0;
     font-size: 1.5rem;
     line-height: 1.25;
 }
+
 .secondary-name {
     color: var(--text-color);
     margin: 0;
-    padding: 0;
     font-size: 1.00rem;
-    line-height: 1.25;
-    opacity: 1;
     font-weight: normal;
 }
+
+.secondary-name .cursor {
+    display: inline-block;
+    margin-left: 2px;
+    font-weight: 300;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
 .pronouns {
     color: var(--text-color);
     margin: 0.25rem 0;
     font-size: 0.85rem;
-    font-style: normal;
 }
+
 .tagline {
     color: var(--text-color);
-    margin: 0.5 0.5 1rem 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin: 0.5rem 0 1rem 0;
+    padding: 0 0.5rem;
     border-left: 3px solid var(--accent-color);
     border-right: 3px solid var(--accent-color);
     font-size: 0.9rem;
 }
 
-/* Blinking Typewriter Cursor */
-.secondary-name .cursor {
-    display: inline-block;
-    margin-left: 2px;
-    font-weight: 300;
-    color: inherit; /* Matches text color, or change to your accent color */
-    animation: blink 0.7s infinite;
-}
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-/* Navigation Menu */
+/* Navigation Links */
 nav {
     display: flex;
     flex-direction: column;
@@ -100,6 +134,7 @@ nav {
     width: 100%;
     margin-bottom: 1.5rem;
 }
+
 nav a {
     color: var(--text-color);
     text-decoration: none;
@@ -108,149 +143,29 @@ nav a {
     border-radius: 6px;
     transition: background 0.2s, color 0.2s;
 }
+
 nav a:hover {
     background-color: var(--border-color);
     color: var(--heading-color);
 }
-.active {
+
+nav a.active {
     background-color: var(--accent-color);
-    color: var(--card-bg) !important; /* Forces white text inside the pill */
+    color: #ffffff !important;
     padding: 0.5rem 0.75rem;
     border-radius: 6px;
     text-decoration: none;
 }
 
-/* Flex Spacer: Pushes footer to bottom */
-.sidebar-spacer {
-    flex-grow: 1;
+nav a.active:hover {
+    background-color: var(--accent-color);
+    color: #ffffff !important;
+    opacity: 0.9;
 }
 
-/* Footer (Pinned to Sidebar Bottom) */
-footer {
-    color: var(--text-footer);
-    font-size: 0.75rem;
-    line-height: 1.4;
-}
-footer p {
-    margin: 0;
-}
+.sidebar-spacer { flex-grow: 1; }
 
-/* Main Content Container */
-.content-wrapper {
-    flex: 1;
-    padding: 2rem 3rem;
-    max-width: 900px;
-    position: relative;
-    /* Sets background.png and overlays a semi-transparent white/light tint */
-    background-image: 
-        linear-gradient(rgba(246, 248, 250, 0.85), rgba(246, 248, 250, 0.85)), 
-        url('background.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; /* Keeps image fixed while scrolling */
-}
-
-section {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-h2 {
-    color: var(--heading-color);
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
-    margin-top: 0;
-}
-
-.project-card {
-    border-left: 3px solid var(--accent-color);
-    padding-left: 1rem;
-    margin: 1rem 0;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
-
-    header {
-        width: 100%;
-        height: auto;
-        position: relative;
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-        padding: 1.5rem;
-    }
-
-    .sidebar-spacer {
-        display: none; /* Disables the bottom spacer on mobile */
-    }
-
-    nav {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-bottom: 1rem;
-    }
-
-    .content-wrapper {
-        padding: 1.5rem;
-    }
-}
-
-/* Tabbed Alignment Layout (\tab effect) */
-.tabbed-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.tabbed-row {
-    display: flex;
-    align-items: baseline;
-}
-
-/* Acts as the fixed \tab stop */
-.tab-label {
-    min-width: 120px; /* Adjust this width if you need a wider/narrower tab space */
-    font-weight: 600;
-    color: var(--text-color);
-    flex-shrink: 0;
-}
-
-/* Value / Link Styling */
-.tab-value {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s, text-decoration 0.2s;
-}
-
-.tab-value:hover {
-    color: var(--heading-color);
-    text-decoration: underline;
-}
-
-.tab-value code {
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
-    font-size: 0.9rem;
-    color: inherit;
-}
-
-/* Subsection Header */
-.subsection-title {
-    font-size: 1.1rem;
-    color: var(--heading-color);
-    margin: 1.5rem 0 0.75rem 0;
-}
-
-/* Flag Language Switcher Container */
+/* Language Switcher Container */
 .lang-switch {
     display: flex;
     justify-content: center;
@@ -259,7 +174,6 @@ h2 {
     width: 100%;
 }
 
-/* Flag Buttons */
 .lang-btn {
     display: flex;
     align-items: center;
@@ -274,16 +188,415 @@ h2 {
     color: var(--text-color);
     transition: all 0.2s ease;
 }
-.lang-btn .flag {
-    font-size: 1.1rem;
-    line-height: 1;
+
+.lang-btn * { pointer-events: none; }
+
+.flag-img {
+    width: 18px;
+    height: 13px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
 }
+
 .lang-btn:hover {
     background-color: var(--border-color);
     color: var(--heading-color);
 }
-/* Active Selected Flag Highlight */
+
 .lang-btn.active-lang {
-    background-color: var(--accent-color);
-    color: var(--card-bg);
+    background-color: var(--heading-color);
+    color: #ffffff;
+    border-color: var(--heading-color);
+}
+
+footer {
+    color: var(--text-footer);
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+footer p { margin: 0; }
+
+/* 4. Scrollable Content Area & Snap Setup */
+.section-content {
+    width: 60%;
+}
+
+.content-wrapper {
+    flex: 1;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    padding: 0 3rem;
+    position: relative;
+    background-image: 
+        linear-gradient(rgba(246, 248, 250, 0.85), rgba(246, 248, 250, 0.85)), 
+        url('background.png');
+    background-repeat: no-repeat;
+    background-position: center bottom 25%;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Full-Screen Base Scroll Section */
+.scroll-section {
+    position: relative;
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Default: Start at top */
+    box-sizing: border-box;
+    padding: 3.5rem 0 5rem 0;
+    background: transparent;
+    border: none;
+}
+
+/* Center Hero Section Vertically */
+#about.scroll-section {
+    justify-content: center;
+    padding-top: 0;
+}
+
+/* Large Section Titles Matching Hero Size */
+.scroll-section h2 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -1.5px;
+    color: var(--heading-color);
+    margin: 0 0 2rem 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* 5. Smooth Rise Entrance Animations */
+.scroll-section > * {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    will-change: opacity, transform;
+}
+
+.scroll-section.is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), 
+                transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 6. Hero & Editorial Component Styling */
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2.5rem;
+    align-items: center;
+    width: 100%;
+}
+.hero-title {
+    font-size: 3.8rem;
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -1.5px;
+    color: var(--heading-color);
+    margin: 0 0 1.5rem 0;
+}
+.hero-title span { color: var(--text-color); }
+.hero-description {
+    font-size: 1.05rem;
+    color: var(--text-color);
+    max-width: 440px;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+/* 6a. Social Pills inside of the Hero*/
+.social-pills {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Base Pill Button */
+.social-pills .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+/* Mask technique allows CSS background-color to fill the icon */
+.social-pills .pill::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-color: var(--text-color); /* Default icon color */
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    transition: background-color 0.2s ease;
+}
+/* Hover effect: Pill turns dark blue, icon flips to white */
+.social-pills .pill:hover {
+    background-color: var(--heading-color);
+    border-color: var(--heading-color);
+}
+.social-pills .pill:hover::before {background-color: var(--card-bg);}
+/* CSS SVG Icon Masks */
+.icon-mail::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5l-8-5V6l8 5l8-5v2z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5l-8-5V6l8 5l8-5v2z'/%3E%3C/svg%3E");
+}
+
+.icon-edu::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6l9-4.91V17h2V9L12 3z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6l9-4.91V17h2V9L12 3z'/%3E%3C/svg%3E");
+}
+
+.icon-github::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z'/%3E%3C/svg%3E");
+}
+
+.icon-linkedin::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z'/%3E%3C/svg%3E");
+}
+
+.icon-instagram::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E");
+}
+
+.icon-x::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z'/%3E%3C/svg%3E");
+}
+
+/* 6a. Statistic/Interest inside of the Hero*/
+.hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+.stat-item { display: flex; flex-direction: column; }
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--heading-color);
+    line-height: 1.1;
+}
+.stat-label {
+    font-size: 0.78rem;
+    color: #57606a;
+    max-width: 160px;
+    margin-top: 0.25rem;
+}
+
+/* 6c. Hero Right Content - UNUSED*/
+.hero-right {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.hero-card {
+    position: relative;
+    width: 100%;
+    height: 440px;
+    background: var(--sidebar-bg);
+    border-radius: 28px;
+    padding: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+.card-badge {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: rgba(0, 0, 0, 0.85);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.signature-overlay {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-family: 'Georgia', cursive, serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+.card-main-img {
+    width: 160px;
+    height: 160px;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+}
+
+/* Cards & Lists Styling */
+.project-card {
+    border-left: 3px solid var(--accent-color);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+}
+
+.tabbed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tabbed-row {
+    display: flex;
+    align-items: baseline;
+}
+
+.tab-label {
+    min-width: 120px;
+    font-weight: 600;
+    color: var(--text-color);
+    flex-shrink: 0;
+}
+
+.tab-value {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s, text-decoration 0.2s;
+}
+
+.tab-value:hover {
+    color: var(--heading-color);
+    text-decoration: underline;
+}
+
+.subsection-title {
+    font-size: 1.1rem;
+    color: var(--heading-color);
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+/* 7. Mainframe Bottom-Right Floating CTA Pill */
+.mainframe-cta {
+    position: absolute;
+    bottom: 2rem;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #000000;
+    color: #ffffff;
+    padding: 0.5rem 1.1rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 5;
+}
+.mainframe-cta .cta-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    font-size: 0.8rem;
+    transition: transform 0.25s ease;
+}
+.mainframe-cta:hover {
+    background: var(--heading-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+.mainframe-cta:hover .cta-arrow {
+    transform: translateY(2px);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* 8. Mobile Responsiveness */
+@media (max-width: 900px) {
+    /* 1. Stack body layout vertically & unstick header */
+    body { 
+        flex-direction: column; 
+    }
+    
+    header { 
+        width: 100%; 
+        height: auto; 
+        position: relative; 
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 1.5rem 1rem;
+    }
+
+    /* 2. Fix 100vh Mobile Safari/Chrome jump issue using dvh (Dynamic Viewport Height) */
+    .content-wrapper {
+        padding: 0 1.25rem;
+    }
+
+    .scroll-section {
+        height: 100dvh; /* dvh adapts dynamically to mobile browser address bars! */
+        padding: 2rem 0 4.5rem 0;
+    }
+
+    /* 3. Stack Hero grid vertically and scale typography */
+    .hero-container { 
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: left;
+    }
+    
+    .hero-title, 
+    .scroll-section h2 { 
+        font-size: 2.2rem; /* Scaled down headline size for smaller screens */
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Hide heavy/large card on small phones to keep section scrollable, or shrink it */
+    .hero-card { 
+        height: 240px; 
+        border-radius: 20px;
+    }
+
+    .card-main-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* 4. Position Floating Pill nicely at the bottom right corner of mobile frame */
+    .mainframe-cta {
+        bottom: 1.25rem;
+        right: 0.5rem;
+        font-size: 0.78rem;
+        padding: 0.4rem 0.9rem;
+    }
 }

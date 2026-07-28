@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shido: Welcome Page</title>
+    <title>Shido: Personal Web</title>
     <link rel="icon" type="image/svg+xml" href="emblem.svg">
     <link rel="stylesheet" href="style.css">
-    <script src="animation.js" defer></script>
     <script src="lang.js" defer></script>
+    <script src="scroll.js" defer></script>
+    <script src="animation.js" defer></script>
 </head>
 <body>
 
-    <!-- Shared Navigation Sidebar -->
+    <!-- Sidebar Navigation -->
     <header>
         <img src="emblem.svg" alt="Emblem" class="profile-emblem">
         <div class="name-group">
@@ -19,20 +20,21 @@
             <p class="secondary-name"><span id="typed-name"></span></p>
             <p class="pronouns" data-i18n="pronoun">(he/him)</p>
         </div>
-        <p class="tagline" data-i18n="tagline"><code>Discover More!</code></p>
+        <p class="tagline"><code data-i18n="tagline">Discover More!</code></p>
 
-        <!-- Links to separate HTML pages -->
-        <nav>
-            <a href="index.html" data-i18n="nav_about" class="active">About</a>
-            <a href="01_projects.html" data-i18n="nav_projects">Projects</a>
-            <a href="02_publications.html" data-i18n="nav_publications">Publications</a>
-            <a href="03_contact.html" data-i18n="nav_contact">Contact</a>
+        <!-- Navigation Anchors -->
+        <nav id="sidebar-nav">
+            <a href="#about" class="nav-link active" data-i18n="nav_about">About</a>
+            <a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a>
+            <a href="#publications" class="nav-link" data-i18n="nav_publications">Publications</a>
+            <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
         </nav>
 
         <div class="sidebar-spacer"></div>
+
+        <!-- Dynamic Language Switcher Container -->
         <div id="lang-switch-container"></div>
 
-        <!-- Links to separate HTML pages -->
         <footer>
             <p>
                 &copy; <span id="year"></span> Shido Abdullah.<br>
@@ -41,13 +43,166 @@
         </footer>
     </header>
 
-    <!-- Page Content -->
+    <!-- Scrollable Content Wrapper -->
     <div class="content-wrapper">
         <main>
-            <section id="about">
-                <h2 data-i18n="about_title">About Me</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, quod vitae repellendus impedit odio inventore voluptates laborum quasi iure cum?</p>
+            
+            <!-- Section 1: About -->
+            <section id="about" class="scroll-section">
+                <div class="hero-container">
+                    <div class="hero-left">
+                        <h1 class="hero-title">
+                            <div lang-block="en">astrobiologist<br><span>in progress</span></div>
+                            <div lang-block="id">astrobiolog<br><span>dalam proses</span></div>
+                            <div lang-block="fi">astrobiologi<br><span>tekeillä</span></div>
+                        </h1>
+
+                        <div class="hero-description">  
+                            <p lang-block="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, accusantium. Atque consectetur ad adipisci praesentium.</p>
+                            <p lang-block="id">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, accusantium. Atque consectetur ad adipisci praesentium.</p>
+                            <p lang-block="fi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, accusantium. Atque consectetur ad adipisci praesentium.</p>
+                        </div>
+
+                        <div class="social-pills">
+                            <a href="mailto:shidoabdullah@gmail.com" class="pill icon-mail" title="Personal Email"></a>
+                            <a href="mailto:20322301@students.itb.ac.id" class="pill icon-edu" title="Institutional Email"></a>
+                            <a href="https://github.com/shidoabdul" target="_blank" rel="noopener noreferrer" class="pill icon-github" title="GitHub"></a>
+                            <a href="https://www.linkedin.com/in/shidoabdullah/" target="_blank" rel="noopener noreferrer" class="pill icon-linkedin" title="LinkedIn"></a>
+                            <a href="https://www.instagram.com/shidoabdul" target="_blank" rel="noopener noreferrer" class="pill icon-instagram" title="Instagram"></a>
+                            <a href="https://x.com/Astro_Shido" target="_blank" rel="noopener noreferrer" class="pill icon-x" title="X (Twitter)"></a>
+                        </div>
+
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">Interest 1</span>
+                                <span class="stat-label">Lorem ipsum dolor sit amet.</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">Interest 2</span>
+                                <span class="stat-label">Lorem ipsum dolor sit amet.</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">Interest 3</span>
+                                <span class="stat-label">Lorem ipsum dolor sit amet.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="hero-right">
+                        <div class="hero-card">
+                            <div class="card-badge"><span class="badge-icon">🌌</span></div>
+                            <div class="card-content">
+                                <span class="signature-overlay">Shido Abdullah</span>
+                                <img src="emblem.svg" alt="Research Emblem" class="card-main-img">
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+
+                <!-- Pinned Mainframe CTA 1 -->
+                <a href="#projects" class="mainframe-cta" title="What am I working on?">
+                    <span class="cta-text" data-i18n="cta_working">What am I working on?</span>
+                    <span class="cta-arrow">↓</span>
+                </a>
             </section>
+
+            <!-- Section 2: Projects -->
+            <section id="projects" class="scroll-section">
+                <div class="section-content">
+                    <h2 data-i18n="projects_title">Current Research & Projects</h2>
+                    
+                    <div class="project-card">
+                        <h3>Project 1</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus nulla numquam aspernatur, voluptas provident quisquam eum hic reiciendis quod odit inventore dolorum, tempore fugit ipsum molestiae animi sunt fugiat.</p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Project 1</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus nulla numquam aspernatur, voluptas provident quisquam eum hic reiciendis quod odit inventore dolorum, tempore fugit ipsum molestiae animi sunt fugiat.</p>
+                    </div>
+                </div>
+
+                <!-- Pinned Mainframe CTA 2 -->
+                <a href="#publications" class="mainframe-cta" title="What are the results?">
+                    <span class="cta-text" data-i18n="cta_results">What are the results?</span>
+                    <span class="cta-arrow">↓</span>
+                </a>
+            </section>
+
+            <!-- Section 3: Publications -->
+            <section id="publications" class="scroll-section">
+                <div class="section-content">
+                    <h2 data-i18n="publications_title">Publications</h2>
+                    <ul>
+                        <li>
+                            <strong>Author Name(s)</strong> (Year). 
+                            <em>"Title of Your Journal Article or Proceeding."</em> 
+                            Journal Name / arXiv.
+                        </li>
+                        <li>
+                            <strong>Author Name(s)</strong> (Year). 
+                            <em>"Title of Your Journal Article or Proceeding."</em> 
+                            Journal Name / arXiv.
+                        </li>
+                        <li>
+                            <strong>Author Name(s)</strong> (Year). 
+                            <em>"Title of Your Journal Article or Proceeding."</em> 
+                            Journal Name / arXiv.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Pinned Mainframe CTA 3 -->
+                <a href="#contact" class="mainframe-cta" title="How to contact me?">
+                    <span class="cta-text" data-i18n="cta_contact">How to contact me?</span>
+                    <span class="cta-arrow">↓</span>
+                </a>
+            </section>
+
+            <!-- Section 4: Contact -->
+            <section id="contact" class="scroll-section">
+                <div class="section-content">
+                    <h2 data-i18n="contact_title">Contact</h2>
+                    
+                    <div class="tabbed-list">
+                        <div class="tabbed-row">
+                            <span class="tab-label">Personal:</span>
+                            <a href="mailto:shidoabdullah@gmail.com" class="tab-value">shidoabdullah@gmail.com</a>
+                        </div>
+                        <div class="tabbed-row">
+                            <span class="tab-label">Institution:</span>
+                            <a href="mailto:20322301@students.itb.ac.id" class="tab-value">20322301@students.itb.ac.id</a>
+                        </div>
+                        <div class="tabbed-row">
+                            <span class="tab-label">GitHub:</span>
+                            <a href="https://github.com/shidoabdul" target="_blank" rel="noopener noreferrer" class="tab-value">github.com/shidoabdul</a>
+                        </div>
+                        <div class="tabbed-row">
+                            <span class="tab-label">LinkedIn:</span>
+                            <a href="https://www.linkedin.com/in/shidoabdullah/" target="_blank" rel="noopener noreferrer" class="tab-value">Shido Abdullah</a>
+                        </div>
+                    </div>
+
+                    <h3 data-i18n="socmed_title" class="subsection-title">Social Media</h3>
+                    <div class="tabbed-list">
+                        <div class="tabbed-row">
+                            <span class="tab-label">Instagram:</span>
+                            <a href="https://www.instagram.com/shidoabdul" target="_blank" rel="noopener noreferrer" class="tab-value">@shidoabdul</a>
+                        </div>
+                        <div class="tabbed-row">
+                            <span class="tab-label">Twitter / X:</span>
+                            <a href="https://x.com/Astro_Shido" target="_blank" rel="noopener noreferrer" class="tab-value">@Astro_Shido</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pinned Mainframe CTA 4 (Back to Top) -->
+                <a href="#about" class="mainframe-cta" title="Back to top">
+                    <span class="cta-text" data-i18n="cta_top">Back to top</span>
+                    <span class="cta-arrow">↑</span>
+                </a>
+            </section>
+
         </main>
     </div>
 

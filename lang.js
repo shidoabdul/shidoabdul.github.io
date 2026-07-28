@@ -11,7 +11,11 @@ const translations = {
     socmed_title: "Social Media",
     pronoun: "(he/him)",
     tagline: "Discover More!",
-    footer_built: "Built with GitHub Pages."
+    footer_built: "Built with GitHub Pages.",
+    cta_working: "What am I working on?",
+    cta_results: "What are the results?",
+    cta_contact: "How to contact me?",
+    cta_top: "Back to top"
   },
   id: {
     nav_about: "Tentang",
@@ -25,7 +29,11 @@ const translations = {
     socmed_title: "Media Sosial",
     pronoun: "(mas/bang)",
     tagline: "Terus temukan!",
-    footer_built: "Dibangun dengan GitHub Pages."
+    footer_built: "Dibangun dengan GitHub Pages.",
+    cta_working: "Apa yang sedang saya kerjakan?",
+    cta_results: "Apakah hasilnya?",
+    cta_contact: "Bagaimana cara menghubungi saya?",
+    cta_top: "Kembali ke atas"
   },
   fi: {
     nav_about: "Tietoa",
@@ -37,13 +45,16 @@ const translations = {
     publications_title: "Julkaisut",
     contact_title: "Ota yhteyttä",
     socmed_title: "Sosiaalinen media",
-    pronoun: "(hän)",
+    pronoun: "(hän/herra)",
     tagline: "Löydä lisää!",
-    footer_built: "Toteutettu GitHub Pages -palvelulla."
+    footer_built: "Toteutettu GitHub Pages -palvelulla.",
+    cta_working: "Mitä teen parhaillaan?",
+    cta_results: "Mitä tuloksia on saatu?",
+    cta_contact: "Miten ottaa yhteyttä?",
+    cta_top: "Takaisin alkuun"
   }
 };
 
-// 1. Function to dynamically inject the language switcher buttons
 function renderLangSwitcher() {
   const container = document.getElementById("lang-switch-container");
   if (!container) return;
@@ -63,7 +74,6 @@ function renderLangSwitcher() {
   `;
 }
 
-// 2. Function to update translated elements
 function setLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach(element => {
     const key = element.getAttribute("data-i18n");
@@ -87,14 +97,11 @@ function setLanguage(lang) {
   localStorage.setItem("preferred_lang", lang);
 }
 
-// 3. Initialize everything on page load
 document.addEventListener("DOMContentLoaded", () => {
-  // First, render the switcher HTML dynamically
   renderLangSwitcher();
 
   const savedLang = localStorage.getItem("preferred_lang") || "en";
 
-  // Attach click events
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const selectedLang = btn.getAttribute("data-lang");
@@ -102,6 +109,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Apply saved language
   setLanguage(savedLang);
 });
