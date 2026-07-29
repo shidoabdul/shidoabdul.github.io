@@ -85,6 +85,27 @@ document.addEventListener("DOMContentLoaded", () => {
     yearElement.textContent = new Date().getFullYear();
   }
 
+  // Mobile Navigation Dropdown Toggle
+  const navToggle = document.getElementById("navToggle");
+  const navCollapse = document.getElementById("navCollapse");
+  const navLinks = document.querySelectorAll("#sidebar-nav a");
+
+  if (navToggle && navCollapse) {
+    // Toggle menu open/closed on hamburger click
+    navToggle.addEventListener("click", () => {
+      navToggle.classList.toggle("is-active");
+      navCollapse.classList.toggle("is-open");
+    });
+
+    // Auto-close menu when visitor clicks a section link on mobile
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navToggle.classList.remove("is-active");
+        navCollapse.classList.remove("is-open");
+      });
+    });
+  }
+
   // Start typewriter effect
   typeEffect();
 });

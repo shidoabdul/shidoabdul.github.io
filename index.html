@@ -10,37 +10,56 @@
     <script src="scroll.js" defer></script>
     <script src="animation.js" defer></script>
 </head>
-<body>
 
+<body>
     <!-- Sidebar Navigation -->
     <header>
-        <img src="emblem.svg" alt="Emblem" class="profile-emblem">
-        <div class="name-group">
-            <h1 class="primary-name">Shido Abdullah</h1>
-            <p class="secondary-name"><span id="typed-name"></span></p>
-            <p class="pronouns" data-i18n="pronoun">(he/him)</p>
+        <!-- Top Header Bar (Visible on Mobile & Desktop) -->
+        <div class="mobile-header-bar">
+            <img src="emblem.svg" alt="Emblem" class="profile-emblem">
+            
+            <div class="name-group">
+                <h1 class="primary-name">Shido Abdullah</h1>
+                <p class="secondary-name"><span id="typed-name"></span></p>
+                
+                <!-- Pronouns with multi-language inline support -->
+                <p class="pronouns">
+                    <span lang-block="en">(he/him)</span>
+                    <span lang-block="id">(mas/bang)</span>
+                    <span lang-block="fi">(hän/hänen)</span>
+                </p>
+            </div>
+
+            <!-- Hamburger Toggle Button (Appears on Mobile Only) -->
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
         </div>
-        <p class="tagline"><code data-i18n="tagline">Discover More!</code></p>
 
-        <!-- Navigation Anchors -->
-        <nav id="sidebar-nav">
-            <a href="#about" class="nav-link active" data-i18n="nav_about">About</a>
-            <a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a>
-            <a href="#publications" class="nav-link" data-i18n="nav_publications">Publications</a>
-            <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
-        </nav>
+        <!-- Collapsible Container (Drops down on mobile, normal sidebar flow on desktop) -->
+        <div class="nav-collapse" id="navCollapse">
+            <!-- Navigation Anchors -->
+            <nav id="sidebar-nav">
+                <a href="#about" class="nav-link active" data-i18n="nav_about">About</a>
+                <a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a>
+                <a href="#publications" class="nav-link" data-i18n="nav_publications">Publications</a>
+                <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+            </nav>
 
-        <div class="sidebar-spacer"></div>
+            <div class="sidebar-spacer"></div>
 
-        <!-- Dynamic Language Switcher Container -->
-        <div id="lang-switch-container"></div>
+            <!-- Dynamic Language Switcher Container -->
+            <div id="lang-switch-container"></div>
 
-        <footer>
-            <p>
-                &copy; <span id="year"></span> Shido Abdullah.<br>
-                <span data-i18n="footer_built">Built with GitHub Pages.</span>
-            </p>
-        </footer>
+            <footer>
+                <p>
+                    &copy; <span id="year"></span> Shido Abdullah.<br>
+                    <span data-i18n="footer_built">Built with GitHub Pages.</span>
+                </p>
+            </footer>
+        </div>
     </header>
 
     <!-- Scrollable Content Wrapper -->
@@ -117,7 +136,7 @@
                     </div>
 
                     <div class="project-card">
-                        <h3>Project 1</h3>
+                        <h3>Project 2</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum accusamus nulla numquam aspernatur, voluptas provident quisquam eum hic reiciendis quod odit inventore dolorum, tempore fugit ipsum molestiae animi sunt fugiat.</p>
                     </div>
                 </div>
@@ -166,11 +185,11 @@
                     
                     <div class="tabbed-list">
                         <div class="tabbed-row">
-                            <span class="tab-label">Personal:</span>
+                            <span class="tab-label" data-i18n="cont_personal">Personal:</span>
                             <a href="mailto:shidoabdullah@gmail.com" class="tab-value">shidoabdullah@gmail.com</a>
                         </div>
                         <div class="tabbed-row">
-                            <span class="tab-label">Institution:</span>
+                            <span class="tab-label" data-i18n="cont_institution">Institution:</span>
                             <a href="mailto:20322301@students.itb.ac.id" class="tab-value">20322301@students.itb.ac.id</a>
                         </div>
                         <div class="tabbed-row">
@@ -205,6 +224,5 @@
 
         </main>
     </div>
-
 </body>
 </html>

@@ -15,7 +15,9 @@ const translations = {
     cta_working: "What am I working on?",
     cta_results: "What are the results?",
     cta_contact: "How to contact me?",
-    cta_top: "Back to top"
+    cta_top: "Back to top",
+    cont_personal: "Personal",
+    cont_institution: "Institution"
   },
   id: {
     nav_about: "Tentang",
@@ -33,7 +35,9 @@ const translations = {
     cta_working: "Apa yang sedang saya kerjakan?",
     cta_results: "Apakah hasilnya?",
     cta_contact: "Bagaimana cara menghubungi saya?",
-    cta_top: "Kembali ke atas"
+    cta_top: "Kembali ke atas",
+    cont_personal: "Personal",
+    cont_institution: "Institusi"
   },
   fi: {
     nav_about: "Tietoa",
@@ -51,7 +55,9 @@ const translations = {
     cta_working: "Mitä teen parhaillaan?",
     cta_results: "Mitä tuloksia on saatu?",
     cta_contact: "Miten ottaa yhteyttä?",
-    cta_top: "Takaisin alkuun"
+    cta_top: "Takaisin alkuun",
+    cont_personal: "Henk. koht.",
+    cont_institution: "Laitos"
   }
 };
 
