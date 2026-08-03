@@ -55,15 +55,15 @@ function typeEffect() {
   // 1. Finished typing out full name
   if (!isDeleting && charIndex === formattedArray.length) {
     isDeleting = true;
-    setTimeout(typeEffect, 7500);
+    setTimeout(typeEffect, 10000);
     return;
   }
 
-  // 2. Finished deleting -> Move to next name & pause for 0.8 seconds
+  // 2. Finished deleting
   if (isDeleting && charIndex === 0) {
     isDeleting = false;
     nameIndex = (nameIndex + 1) % names.length;
-    setTimeout(typeEffect, 800);
+    setTimeout(typeEffect, 500);
     return;
   }
 
@@ -72,7 +72,7 @@ function typeEffect() {
   else {charIndex++;}
 
   // Step delay
-  const speed = isDeleting ? 100 : 140;
+  const speed = isDeleting ? 200 : 100;
   setTimeout(typeEffect, speed);
 }
 document.addEventListener("DOMContentLoaded", typeEffect);

@@ -68,13 +68,13 @@ function renderLangSwitcher() {
   container.innerHTML = `
     <div class="lang-switch">
       <button class="lang-btn" data-lang="en" title="English">
-        <img src="https://flagcdn.com/20x15/gb.png" alt="UK Flag" class="flag-img">
+        <span class="icon-flag-en"></span>
       </button>
       <button class="lang-btn" data-lang="id" title="Bahasa Indonesia">
-        <img src="https://flagcdn.com/20x15/id.png" alt="Indonesia Flag" class="flag-img">
+        <span class="icon-flag-id"></span>
       </button>
       <button class="lang-btn" data-lang="fi" title="Suomi">
-        <img src="https://flagcdn.com/20x15/fi.png" alt="Finland Flag" class="flag-img">
+        <span class="icon-flag-fi"></span>
       </button>
     </div>
   `;
