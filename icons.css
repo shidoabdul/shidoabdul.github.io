@@ -86,7 +86,7 @@
 
 /* 1. English (UK/US Diagonal Split) */
 .icon-flag-en {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg%3E%3Crect width='100' height='100' fill='%23ffffff'/%3E%3Cpath fill='%23bb133e' d='M0 0v7.69h100V0zm0 15.38v7.69h100v-7.69zm0 15.38v7.69h100v-7.69zm0 15.38v7.69h100v-7.69zm0 15.38v7.69h100v-7.69zm0 15.38v7.69h100v-7.69zm0 15.38V100h100v-7.69z'/%3E%3Crect width='53.85' height='53.85' fill='%23002147'/%3E%3C/g%3E%3Cg%3E%3Cpath fill='%23012169' d='M0 100h100V0z'/%3E%3Cpath fill='%23ffffff' d='M0 100h10L40 70v30h20V70l30 30h10V90L70 60h30V40H70L100 10V0z'/%3E%3Cpath fill='%23c8102e' d='M45 100h10V55h45V45H55L45 55z'/%3E%3Cpath fill='%23c8102e' d='M100 0L60 40h5l35-35zM40 60L0 100h5l35-35zm20 0v5l35 35h5v-5L65 60z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 5'%3E%3Crect width='5' height='5' fill='%23ffffff'/%3E%3Cpath d='M 0,1.874 H 1.828 V 0 H 3.172 V 1.874 H 5 V 3.126 H 3.172 V 5 H 1.828 V 3.126 H 0 Z' fill='%23c8102e'/%3E%3C/svg%3E");
 }
 
 /* 2. Indonesia */
