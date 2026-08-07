@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const observerOptions = {
     root: scrollContainer,
-    threshold: 0.4 // Triggers when 40% of the section is visible
+    threshold: 0.1 // Triggers when the section is fully visible
   };
 
   const sectionObserver = new IntersectionObserver((entries) => {
